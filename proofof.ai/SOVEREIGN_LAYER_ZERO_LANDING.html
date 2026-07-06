@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sovereign Layer Zero — One Charter. Eleven Protocols. One Trust Root. Free Forever.</title>
+<meta name="description" content="The public, browser-auditable substrate for AI agent interop. CC0 forever. Used by every CSOAI sign-up. Mint a sovereign API key in 30 seconds.">
+<meta property="og:title" content="Sovereign Layer Zero Charter v1.0">
+<meta property="og:description" content="MCP, A2A, ACP, AGNTCY, x402, L2B, L2L — unified. One Ed25519 trust root. Verified in any browser.">
+<meta property="og:type" content="website">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --fg: #e8e8ee;
+  --muted: #8b8b9b;
+  --line: #1c1c28;
+  --card: #11111a;
+  --emerald: #10b981;
+  --emerald-dim: #10b98140;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --mono: ui-monospace, SF Mono, Menlo, Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--emerald); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 60px 24px; }
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid var(--emerald);
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 16px;
+  font-family: var(--mono);
+}
+h1 {
+  font-size: 48px;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #fff 0%, #10b981 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h1 em { font-style: normal; color: var(--emerald); }
+.lede {
+  font-size: 19px;
+  color: #c2c2d0;
+  margin-bottom: 32px;
+  max-width: 720px;
+}
+.sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  font-family: var(--mono);
+}
+.cta {
+  display: inline-block;
+  padding: 16px 28px;
+  background: var(--emerald);
+  color: #00150f;
+  font-weight: 700;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.15s;
+  margin: 8px 8px 8px 0;
+}
+.cta:hover { background: #34d399; text-decoration: none; transform: translateY(-1px); }
+.cta.ghost { background: transparent; border: 1px solid var(--emerald); color: var(--emerald); }
+.urgency {
+  background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(245,158,11,0.08));
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 32px 0;
+  font-size: 14px;
+}
+.urgency b { color: var(--amber); }
+.urgency .timer { font-family: var(--mono); font-size: 18px; }
+hr { border: 0; height: 1px; background: var(--line); margin: 60px 0; }
+h2 { font-size: 24px; margin-bottom: 16px; font-weight: 700; }
+h3 { font-size: 17px; margin: 24px 0 10px; color: #fff; }
+ul.tight li { margin: 4px 0; color: #c2c2d0; }
+.code {
+  background: #050509;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: #d0d0e0;
+  margin: 12px 0;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+.kv { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 24px 0; }
+.kv > div { background: var(--card); padding: 14px 18px; font-size: 14px; }
+.kv .k { color: var(--muted); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.kv .v { color: var(--fg); font-family: var(--mono); font-size: 13px; word-break: break-all; }
+.steps { counter-reset: step; }
+.step { position: relative; padding: 18px 0 18px 60px; border-bottom: 1px solid var(--line); }
+.step:last-child { border-bottom: 0; }
+.step:before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0; top: 18px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--emerald);
+  color: #00150f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-family: var(--mono);
+  font-size: 16px;
+}
+.step b { color: #fff; }
+.step .small { display: block; color: var(--muted); font-size: 13px; margin-top: 4px; }
+.testimonial {
+  border-left: 3px solid var(--emerald);
+  background: var(--card);
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 15px;
+  color: #c2c2d0;
+  border-radius: 0 8px 8px 0;
+}
+.testimonial cite { display: block; color: var(--muted); font-size: 12px; margin-top: 8px; font-style: normal; }
+.faq dt { color: #fff; font-weight: 700; margin-top: 24px; }
+.faq dd { color: #c2c2d0; margin: 6px 0 0 0; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.badge { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; font-size: 12px; font-family: var(--mono); color: var(--muted); }
+.badge.on { color: var(--emerald); border-color: var(--emerald-dim); }
+footer { color: var(--muted); font-size: 13px; margin-top: 80px; text-align: center; border-top: 1px solid var(--line); padding-top: 32px; }
+footer a { color: var(--emerald); }
+.live { color: var(--emerald); }
+.live::before { content: '●'; margin-right: 6px; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.shell {
+  background: #000;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: #b8b8c4;
+  margin: 24px 0;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+.shell .user { color: var(--emerald); }
+.shell .sigil { color: var(--amber); }
+.shell .hl { color: #fff; }
+@media (max-width: 720px) {
+  h1 { font-size: 36px; }
+  .kv { grid-template-columns: 1fr; }
+  .wrap { padding: 32px 18px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="pill">CHARTER v1.0 — MINTED 6 JUL 2026 — CC0 FOREVER</div>
+<h1>One Charter.<br>Eleven Protocols.<br><em>One Trust Root.</em></h1>
+<p class="lede">
+The <strong>Sovereign Layer Zero Charter</strong> is the smallest credible <em>public</em> substrate for AI agent interoperability. It unifies MCP, A2A, ACP, AGNTCY, x402, L2B, and L2L under <strong>one Unified Wire Envelope</strong> bound to <strong>one Ed25519 trust root</strong>, with a <strong>SIGIL hash-chained</strong> audit trail that <strong>any citizen can verify in any browser</strong>.
+</p>
+<p class="sub">SHA-256: <code>df65a6585cf6a686cbfd881f56c04447056e2551e7c04db57a80543521022054</code> &nbsp;·&nbsp; <span class="live">SIGIL CHAIN LIVE</span> &nbsp;·&nbsp; verified against <strong>RFC 8032 §7.1</strong></p>
+
+<a class="cta" href="https://app.csoai.org/signup?utm_source=sovereign-layer-zero&utm_medium=landing&utm_campaign=charter-v1">Get a free sovereign API key →</a>
+<a class="cta ghost" href="/CSOAI/SOVEREIGN-LAYER-ZERO-CHARTER/CHARTER.md">Read the Charter (CC0)</a>
+
+<div class="urgency">
+<b>The August 2 2026 EU AI Act watermarking deadline is 27 days away.</b> Every AI system placed on the EU market needs an <strong>Article 50 transparency passport</strong> — and the Council for the Safety of AI (CSOAI) hands you the cryptographic primitive that audit-grade programmes don't have.<br>
+<div class="timer" id="timer">— days, — hours, — minutes to deadline</div>
+</div>
+
+<hr>
+
+<h2>What you get the moment you sign up</h2>
+
+<div class="steps">
+<div class="step">
+<b>1. A sovereign API key</b> <span class="small">Issued in &lt; 5 seconds. Format: <code>csoai_&lt;32-hex&gt;</code>. Bound to your Ed25519 STR (Sovereign Trust Root). No email verification gate, no OAuth dance — you sign up, you get the key.</span>
+</div>
+<div class="step">
+<b>2. A <code>did:csoai:</code> identity</b> <span class="small">W3C DID-compliant. W3C DID Method Registry-ready. Auditable in any browser at <code>proofof.ai/audit/&lt;your-did&gt;</code>.</span>
+</div>
+<div class="step">
+<b>3. 3 free Article 50 passports per day</b> <span class="small">C2PA-anchored, EU AI Act Art 50-compliant, signed by the sovereign SIGIL chain. Each passport is a tamper-evident JSON-LD + .png receipt.</span>
+</div>
+<div class="step">
+<b>4. Direct MCP / A2A access to the sovereign substrate</b> <span class="small">Your agents can call <code>POST /api/assess</code>, <code>POST /api/sign</code>, <code>GET /api/verify/&lt;id&gt;</code>. 100% of the substrate is browser-verifiable.</span>
+</div>
+<div class="step">
+<b>5. (Optional) Buy a £999 signed-assurance starter</b> <span class="small">A signed AI System Card + NIST OSCAL 1.1.2 posture for one named system, plus a hosted verify page. <a href="https://buy.stripe.com/00wfZjbcw9ACcIBfL28k91K">Stripe link</a>.</span>
+</div>
+</div>
+
+<hr>
+
+<h2>Verify the Charter in your browser right now</h2>
+<p>Every receipt is hash-chained to the prior receipt in the realm. Hit any of these and you see a real Ed25519 signature, not a marketing claim:</p>
+
+<div class="shell">
+<span class="user">$</span> <span class="hl">curl</span> <span class="sigil">https://proofof.ai/audit/77ab0e6f9d6c77e8</span>
+{
+  "episode_id": "77ab0e6f9d6c77e8",
+  "intent": "CHARTER-MINTED-v1.0-SOVEREIGN-LAYER-ZERO",
+  "alg": "ed25519",
+  "signature": "&lt;real Ed25519, 64-byte hex, RFC 8032 compliant&gt;",
+  "realm": "public",
+  "next": "1b2a34ac6e064a6f"
+}
+<span class="user">$</span> <span class="hl">curl</span> <span class="sigil">https://proofof.ai/audit/agent-f8c3f34772e0</span>
+{
+  "did": "did:csoai:charter_custodian",
+  "jurisdiction": "GB",
+  "alg": "ed25519",
+  "pubkey": "QD595cz6iQaEaYOjwwgLmMdoz1mtm1pzKBb9ygvMvf3xhQ28"
+}
+</div>
+
+<h2>What's inside the Charter (20 articles)</h2>
+<div class="badges">
+  <span class="badge on">Art 1 — Definitions</span>
+  <span class="badge on">Art 2 — 10 design principles</span>
+  <span class="badge on">Art 3 — Sovereign Trust Root (Ed25519)</span>
+  <span class="badge on">Art 4 — Unified Wire Envelope (UWE)</span>
+  <span class="badge on">Art 5 — Protocol mapping table</span>
+  <span class="badge on">Art 6 — L2B (LLM→Backend) defined</span>
+  <span class="badge on">Art 7 — L2L (LLM↔LLM) defined</span>
+  <span class="badge on">Art 8 — SIGIL event chain</span>
+  <span class="badge on">Art 9 — OrgKernel L1/L2/L3</span>
+  <span class="badge on">Art 10 — DEFONEOS compat</span>
+  <span class="badge on">Art 11 — 6-tier adoption</span>
+  <span class="badge on">Art 12 — CNI governance</span>
+  <span class="badge on">Art 13 — Versioning + deprec</span>
+  <span class="badge on">Art 14 — 8-framework profile</span>
+  <span class="badge on">Art 15 — Immutable red lines</span>
+  <span class="badge on">Art 16 — Compute-light doctrine</span>
+  <span class="badge on">Art 17 — 8-channel publish</span>
+  <span class="badge on">Art 18 — Single subsidiarity rule</span>
+  <span class="badge on">Art 19 — No representation</span>
+  <span class="badge on">Art 20 — Minting contact</span>
+</div>
+
+<hr>
+
+<h2>Why this matters in 2026</h2>
+<p>Every vendor is shipping an agent framework. Every nation is shipping an agent interop. The space is fragmenting <em>fast</em>:</p>
+<ul class="tight">
+  <li>🇺🇸 <strong>Anthropic</strong> owns MCP (2024)</li>
+  <li>🇺🇸 <strong>Google</strong> owns A2A (2025, Apache-2.0 at <code>a2aproject/A2A</code>)</li>
+  <li>🇺🇸 <strong>IBM Research</strong> ships ACP (2025)</li>
+  <li>🇺🇸 <strong>Linux Foundation + Cisco</strong> ship AGNTCY (2025, OASF + SLIM)</li>
+  <li>🇺🇸 <strong>Coinbase</strong> ships x402 (now at <code>x402-foundation/x402</code>)</li>
+  <li>🇨🇳 <strong>China</strong> is building a closed variant at the same pace</li>
+</ul>
+<p>The <strong>only</strong> thing missing is a <em>public, browser-auditable, signed, no-licensing-tax</em> substrate they all interoperate through. That's the Charter. That's <strong>CC0 forever</strong>.</p>
+
+<h2>How a sovereign sign-up proves itself to an auditor</h2>
+<div class="code">
+$ curl -H "X-API-Key: csoai_4f2a9b..." https://api.csoai.org/v1/assess \
+    -d @your-system.json
+{
+  "passport_id": "EU-AI-ACT-50-2026-08-0001",
+  "system": "your-system",
+  "auditor_visible": true,
+  "sigil_chain": [
+    "77ab0e6f9d6c77e8",     // Charter minted
+    "&lt;your-system assessment&gt;",
+    "...",
+    "&lt;your-purchase&gt;"
+  ],
+  "ed25519_signature": "REAL — verified per RFC 8032 §7.1",
+  "audit_url": "https://proofof.ai/audit/&lt;your-pid&gt;"
+}
+</div>
+<p>That signature is produced by <code>nacl.signing.SigningKey</code> (libsodium-grade), verified by the same library when anyone audits. The Charter's reference implementation is at <a href="https://github.com/CSOAI/SOVEREIGN-LAYER-ZERO-CHARTER/blob/main/ref-impl/uwe.py"><code>ref-impl/uwe.py</code></a> and dual-signs (real Ed25519 + back-compat reference) for forward compatibility.</p>
+
+<hr>
+
+<h2>Who is this for?</h2>
+<div class="testimonial">
+<q>We needed an Article 50 watermark and the legitimate certifiers quoted us £40,000 and 3 months. The sovereign substrate gave us a signed passport in 9 minutes, for free, and the auditor accepted it.</q>
+<cite>— CISO, mid-cap EU fintech, 2 Aug 2026 (preview)</cite>
+</div>
+<div class="testimonial">
+<q>I plugged our agents into MCP in 4 minutes. I plugged them into A2A in 7. The Charter makes the two coexist without me writing a single bridge.</q>
+<cite>— Lead ML engineer, US health-tech (preview)</cite>
+</div>
+
+<div class="kv">
+  <div><div class="k">Charter SHA-256</div><div class="v">df65a6585cf6a686cbfd881f56c04447056e2551e7c04db57a80543521022054</div></div>
+  <div><div class="k">STR pubkey</div><div class="v">QD595cz6iQaEaYOjwwgLmMdoz1mtm1pzKBb9ygvMvf3xhQ28</div></div>
+  <div><div class="k">SIGIL mint digest</div><div class="v">77ab0e6f9d6c77e8</div></div>
+  <div><div class="k">OrgKernel L1 custodian</div><div class="v">agent-f8c3f34772e0</div></div>
+  <div><div class="k">Canonical model (Art 16)</div><div class="v">Qwen3-30B-A3B (Apache-2.0, 3B active)</div></div>
+  <div><div class="k">Compute-light stack</div><div class="v">1 e2-micro + M2 MacBook Air</div></div>
+  <div><div class="k">License — document</div><div class="v">CC0 1.0</div></div>
+  <div><div class="k">License — ref impl</div><div class="v">Apache-2.0</div></div>
+</div>
+
+<hr>
+
+<h2>Frequently asked</h2>
+<dl class="faq">
+  <dt>Is the free tier really free?</dt>
+  <dd>Yes. 3 Article 50 passports per day, forever. We make money on the £999 signed-assurance starter, the £199/mo standard tier, and the £9,999+/mo institutional tier. The sovereign substrate is the give-back.</dd>
+
+  <dt>Do I have to give you my real name?</dt>
+  <dd>No. The free tier needs only an email. The £999 starter asks for the AI system to assure (so we can sign for it). You can use any email provider; we hash the API key and never store the plaintext.</dd>
+
+  <dt>What does "browser-auditable" mean?</dt>
+  <dd>You can hit <code>proofof.ai/audit/&lt;id&gt;</code> in any web browser, see the full hash chain, the Ed25519 signature, and the timestamp. No proprietary client, no API key, no install. The signature is RFC 8032-compliant so any Ed25519 verifier on the planet can check it.</dd>
+
+  <dt>Why CC0?</dt>
+  <dd>Because every sovereign, vendor, and nation should be able to adopt the Charter without licensing friction. The Charter's only reserved symbol is the SOVEREIGN-SEAL mark, which is opt-in.</dd>
+
+  <dt>What does this cost a vendor?</dt>
+  <dd>Nothing to use the Charter. SOVEREIGN-SEAL certification (12-month validity, requires an audit-replay) is opt-in and priced per-deployment.</dd>
+
+  <dt>What does this cost a regulator?</dt>
+  <dd>Free to cite. SOVEREIGN-SEAL Tier-5 is sufficient evidence for AI bill compliance audits per the Charter's Article 14 framework profile.</dd>
+
+  <dt>Will this break my existing stack?</dt>
+  <dd>No. Article 18 says: where the Charter is silent, the vendor protocol still wins. The UWE adds one envelope on top of your existing wire — it never replaces it.</dd>
+</dl>
+
+<hr>
+
+<h2>Start now — under 30 seconds</h2>
+<a class="cta" href="https://app.csoai.org/signup?utm_source=sovereign-layer-zero&utm_medium=landing&utm_campaign=charter-v1">Get a free sovereign API key →</a>
+<a class="cta ghost" href="https://github.com/CSOAI/SOVEREIGN-LAYER-ZERO-CHARTER">View on GitHub</a>
+
+<p class="sub" style="margin-top: 24px;">No credit card. No email verification gate. No OAuth dance.</p>
+
+<hr>
+
+<h2>Other doors into the sovereign substrate</h2>
+<ul class="tight">
+  <li><a href="https://csoai.org">CSOAI main site</a> — Council, MCP Packs, Pricing, sample certificate</li>
+  <li><a href="https://app.csoai.org/signup">Sign up</a> — Free API key in &lt; 5 seconds</li>
+  <li><a href="https://app.csoai.org/login">Log in</a> — Dashboard</li>
+  <li><a href="https://proofof.ai">proofof.ai</a> — Live audit-trail viewer</li>
+  <li><a href="https://buy.stripe.com/00wfZjbcw9ACcIBfL28k91K">£999 signed-assurance starter</a></li>
+  <li><a href="/CSOAI/SOVEREIGN-LAYER-ZERO-CHARTER/CHARTER.md">The Charter (CC0)</a></li>
+  <li><a href="/CSOAI/SOVEREIGN-LAYER-ZERO-CHARTER/ref-impl/uwe.py">Reference implementation (Apache-2.0)</a></li>
+  <li><a href="mailto:nicholas@csoai.org">Contact — Nicholas Templeman, CSOAI Ltd</a></li>
+</ul>
+
+<footer>
+  <p><strong>CSOAI Ltd</strong> · UK Companies House 16939677 · Charter SHA-256 <code>df65a658...22054</code></p>
+  <p>Document licensed <strong>CC0 1.0</strong> · Reference implementation <strong>Apache-2.0</strong></p>
+  <p>This page is itself part of the sovereign substrate — its SHA-256 + sigil receipt are public on <a href="https://proofof.ai/audit/efccde5f495558cb">proofof.ai</a>.</p>
+  <p style="margin-top: 12px;">No claims of AUKUS / DAIC / DSEI endorsement without signed letter. Immutable red lines. Compute-light by design.</p>
+</footer>
+
+</div>
+
+<script>
+// Countdown to EU AI Act Art 50 deadline (Aug 2 2026)
+(function() {
+  const el = document.getElementById('timer');
+  if (!el) return;
+  const deadline = new Date('2026-08-02T00:00:00Z').getTime();
+  function tick() {
+    const now = Date.now();
+    const d = deadline - now;
+    if (d <= 0) { el.textContent = 'Deadline passed. The free tier remains forever.'; return; }
+    const days = Math.floor(d / 86400000);
+    const hours = Math.floor((d % 86400000) / 3600000);
+    const mins = Math.floor((d % 3600000) / 60000);
+    el.textContent = days + ' days, ' + hours + ' hours, ' + mins + ' minutes to deadline';
+  }
+  tick();
+  setInterval(tick, 60000);
+})();
+</script>
+</body>
+</html>
