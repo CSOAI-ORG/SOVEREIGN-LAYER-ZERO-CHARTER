@@ -44,6 +44,12 @@ This Charter is.
 .
 ├── CHARTER.md                   # 423-line sovereign document
 ├── v1.0.md                      # identical copy under versioned name
+├── CROSSWALK.json               # Universal 6-Plane Crosswalk (Charter -> Layer 0 -> Harness X -> GSPC 34 -> MEOK -> 50 Regulators)
+├── interop/
+│   ├── oscal-gspc-34-component-definition-v1.json      # NIST OSCAL 1.1.2 component-definition (34 GSPC axes)
+│   └── oscal-full-estate-53-component-definition-v1.json # NIST OSCAL 1.1.2 component-definition (53 estate components)
+├── research/
+│   └── 10_UNIVERSAL_6PLANE_CROSSWALK_GSPC34_HARNESSX_MEOK_50REGULATORS.md
 ├── LICENSE-CC0.md               # document licence (CC0 1.0)
 ├── LICENSE-Apache2.0.txt        # reference implementation licence (Apache-2.0)
 ├── ref-impl/
@@ -56,7 +62,7 @@ This Charter is.
 ## Quickstart (5 minutes)
 
 ```bash
-git clone https://github.com/CSOAI/SOVEREIGN-LAYER-ZERO-CHARTER
+git clone https://github.com/CSOAI-ORG/SOVEREIGN-LAYER-ZERO-CHARTER
 cd SOVEREIGN-LAYER-ZERO-CHARTER
 python3 ref-impl/uwe.py
 ```
@@ -66,7 +72,7 @@ Expected output: an end-to-end demo of
 2. OrgKernel L1 identity ledger
 3. SIGIL hash-chained receipts (3-event chain)
 4. A Unified Wire Envelope carrying MCP + A2A + x402
-5. OrgKernel L2 execution log + L3 compliance assertion
+5. OrgKernel L2 execution log + L3 conformance assertion
 
 No network. No third-party dependencies. Single-file. Runs anywhere Python 3.7+ runs.
 
@@ -79,11 +85,11 @@ No network. No third-party dependencies. Single-file. Runs anywhere Python 3.7+ 
 | **T0** | Nothing. Keep your current stack. |
 | **T1** | SIGIL receipts on your existing traffic |
 | **T2** | + OrgKernel L1 identity per agent |
-| **T3** | + L2 execution + L3 compliance assertion |
+| **T3** | + L2 execution + L3 deterministic assertion |
 | **T4** | + full UWE envelope, sovereign DNS |
-| **T5** | + SOVEREIGN-SEAL certified pass |
+| **T5** | + SOVEREIGN-SEAL signed measurement receipt (Measurement, never certification — free verification at https://councilof.ai/verify) |
 
-Vendor adoption stops at the tier it chooses. Regulator adoption requires T5.
+Vendor adoption stops at the tier it chooses. Regulator evidence assembly uses T5.
 
 ---
 
@@ -127,7 +133,7 @@ Hash-chained to all prior Sovereign substrate emissions.
 3. **Cite** as:
 
 > Templeman, N. (2026). *The Sovereign Layer Zero Charter v1.0*.
-> CSOAI Ltd. CC0 1.0. https://github.com/CSOAI/SOVEREIGN-LAYER-ZERO-CHARTER
+> CSOAI Ltd. CC0 1.0. https://github.com/CSOAI-ORG/SOVEREIGN-LAYER-ZERO-CHARTER
 
 4. **Mirror** without restriction.
 5. **Translate** without restriction.
